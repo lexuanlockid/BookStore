@@ -1,0 +1,30 @@
+﻿@model Order
+
+<div style="width: 90%; margin: auto" class="mt-3">
+        <h5>My Order</h5>
+
+        <table class="table table-border">
+            <tr>
+                <th>Book</th>
+                <th>Image</th>
+                <th>Genre</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            </tr>
+            @foreach (var item in Model.OrderDetail)
+            {
+
+                <tr>
+                    <td>@item.Product.Title</td>
+                    <td>
+                        <img src="@item.Product.ImgUrl" style="width:80px; height:100px" />
+                    </td>
+                    <td>@item.Product.Genre.GenreName</td>
+                    <td>@item.Product.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Product.Price * item.Quantity)</td>
+                </tr>
+            }
+        </table>
+</div>
